@@ -13,5 +13,5 @@ Source generators will enable the removal of reflection. That is already a great
 
 - [x] create repo
 - [ ] create implementation plan
-- [ ] setup project
+- [x] setup project skeleton
 - [ ] ...
