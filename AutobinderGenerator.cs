@@ -12,11 +12,6 @@ namespace Devies.Autobinder
     {
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
-            #if DEBUG
-                if (!Debugger.IsAttached) Debugger.Launch();
-            #endif
-
-            Debugger.Break();
 
             context.RegisterPostInitializationOutput(static postInitializationContext =>
             postInitializationContext.AddSource("Devies.Autobinder.Attribute.Generated.cs", SourceText.From("""
@@ -24,19 +19,7 @@ namespace Devies.Autobinder
                 namespace Devies.Autobinder {
                     [AttributeUsage(AttributeTargets.Parameter)]
                     public class AutobindAttribute: Attribute {
-                        public AutobindAttribute(string fromParamName)
-                        {
-                            _paramName = fromParamName;
-                        }
-
-                        public AutobindAttribute(string paramName, string toModelFieldName)
-                        {
-                            _paramName = paramName;
-                            _modelFieldName = toModelFieldName;
-                        }
-                        
-                        public required string _paramName { get; set; }
-                        private string? _modelFieldName { get; set; }
+                        public required string ParamName { get; set; }
                     }
                 }
                 """, Encoding.UTF8)));
@@ -74,7 +57,7 @@ namespace Devies.Autobinder
     }
 
 
-    public class Model {
+    public record Model {
         public Model(string @namespace, string className, string methodName) {
             Namespace = @namespace;
             ClassName = className;

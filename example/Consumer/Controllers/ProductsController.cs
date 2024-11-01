@@ -1,5 +1,6 @@
 using Consumer.Data;
 using Microsoft.AspNetCore.Mvc;
+using Devies.Autobinder;
 
 namespace Consumer.Controllers;
 
@@ -17,7 +18,7 @@ public class ProductsController(
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Product> GetById(int id)
+    public ActionResult<Product> GetById([Autobind(ParamName = "id")]int id)
     {
         return db.Products.Single(p => p.Id == id);
     }
