@@ -3,8 +3,28 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+## Project specific
 data.sqlite*
 Generated
+
+## VS Code
+.vscode
+
+## Rider nonsense
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/modules.xml
+/.idea.Devies.Autobinder.iml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+.idea
 
 # User-specific files
 *.rsuser
